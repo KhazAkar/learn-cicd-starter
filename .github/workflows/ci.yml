@@ -20,5 +20,5 @@ jobs:
 
       - name: Run go tests
         run: go test -v -cover ./...
-      - name: Run go fmt
+      - name: Run go fmt Style check
         run: test -z $(go fmt ./...)
