@@ -35,7 +35,7 @@ func TestGetAPIKey(t *testing.T) {
 				"Authorization": []string{"Bearer my-token"},
 			},
 			expectedKey:   "",
-			expectedError: errors.New("malformed authorization header"),
+			expectedError: ErrMalformedAuthHeader,
 		},
 		{
 			name: "Malformed Authorization Header - No key provided",
@@ -43,7 +43,7 @@ func TestGetAPIKey(t *testing.T) {
 				"Authorization": []string{"ApiKey"},
 			},
 			expectedKey:   "",
-			expectedError: errors.New("malformed authorization header"),
+			expectedError: ErrMalformedAuthHeader,
 		},
 		{
 			name: "Malformed Authorization Header - Empty string",
@@ -51,7 +51,7 @@ func TestGetAPIKey(t *testing.T) {
 				"Authorization": []string{""},
 			},
 			expectedKey:   "",
-			expectedError: nil,
+			expectedError: ErrNoAuthHeaderIncluded,
 		},
 		{
 			name:          "Empty Headers",
