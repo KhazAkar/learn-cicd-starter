@@ -3,8 +3,6 @@ name: ci
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [main]
 
 jobs:
   tests:
@@ -22,3 +20,5 @@ jobs:
 
       - name: Run go tests
         run: go test -v -cover ./...
+      - name: Run go fmt
+        run: test -z $(go fmt ./...)
