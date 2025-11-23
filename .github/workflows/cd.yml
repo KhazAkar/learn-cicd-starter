@@ -29,4 +29,4 @@ jobs:
         uses: google-github-actions/setup-gcloud@v3
 
       - name: Deploy app to GCP
-        run: gcloud builds submit --tag us-central1-docker.pkg.dev/learn-cicd-starter-bootdotdev/notely-ar-repo:latest .
+        run: gcloud builds submit --tag us-central1-docker.pkg.dev/learn-cicd-starter-bootdotdev/notely-ar-repo/notely:latest .
