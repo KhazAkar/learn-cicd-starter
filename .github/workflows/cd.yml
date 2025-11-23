@@ -28,5 +28,8 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v3
 
-      - name: Deploy app to GCP
+      - name: Deploy app to GCP Artifact Registry
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/learn-cicd-starter-bootdotdev/notely-ar-repo/notely:latest .
+
+      - name: Deploy to GCP Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/learn-cicd-starter-bootdotdev/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project learn-cicd-starter-bootdotdev --max-instances=4
